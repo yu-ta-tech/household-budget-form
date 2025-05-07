@@ -12,12 +12,14 @@
         登録完了！
       </div>
       <h1>家計簿登録</h1>
+      <iframe name="hidden_iframe" style="display: none"></iframe>
+
       <form
         id="household-form"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScoM_D0sgx9sCPpMbWa8C1jp_FoMKhuCmwXh0e6g6mfsDCKeQ/formResponse"
         method="POST"
-        target="_blank"
-        onsubmit="return submitForm(event)"
+        target="hidden_iframe"
+        onsubmit="showSuccessMessage()"
       >
         <div class="form-group">
           <label for="date">日付 <span class="required">*</span></label>
@@ -109,35 +111,12 @@
 
     <script src="script.js"></script>
     <script>
-      function submitForm(event) {
-        event.preventDefault();
-
-        const form = document.getElementById("household-form");
-        const formData = new FormData(form);
-
-        fetch(form.action, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors",
-        })
-          .then(() => {
-            // 成功メッセージを表示
-            const successMessage = document.getElementById("success-message");
-            successMessage.style.display = "block";
-
-            // フォームをリセット
-            form.reset();
-
-            // 3秒後にメッセージを非表示
-            setTimeout(() => {
-              successMessage.style.display = "none";
-            }, 3000);
-          })
-          .catch((error) => {
-            console.error("送信エラー:", error);
-          });
-
-        return false;
+      function showSuccessMessage() {
+        const successMessage = document.getElementById("success-message");
+        successMessage.style.display = "block";
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 3000);
       }
     </script>
   </body>
