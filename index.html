@@ -12,14 +12,19 @@
         登録完了！
       </div>
       <h1>家計簿登録</h1>
-      <iframe name="hidden_iframe" style="display: none"></iframe>
+      <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted) {showSuccessMessage();}"
+      ></iframe>
 
       <form
         id="household-form"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScoM_D0sgx9sCPpMbWa8C1jp_FoMKhuCmwXh0e6g6mfsDCKeQ/formResponse"
         method="POST"
         target="hidden_iframe"
-        onsubmit="showSuccessMessage()"
+        onsubmit="submitted=true;"
       >
         <div class="form-group">
           <label for="date">日付 <span class="required">*</span></label>
@@ -111,11 +116,17 @@
 
     <script src="script.js"></script>
     <script>
+      var submitted = false;
       function showSuccessMessage() {
         const successMessage = document.getElementById("success-message");
         successMessage.style.display = "block";
+
+        // フォームをリセット
+        document.getElementById("household-form").reset();
+
         setTimeout(() => {
           successMessage.style.display = "none";
+          submitted = false;
         }, 3000);
       }
     </script>
