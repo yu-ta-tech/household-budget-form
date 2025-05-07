@@ -16,7 +16,6 @@
         id="household-form"
         action="https://docs.google.com/forms/d/e/1FAIpQLScoM_D0sgx9sCPpMbWa8C1jp_FoMKhuCmwXh0e6g6mfsDCKeQ/formResponse"
         method="POST"
-        target="_blank"
         onsubmit="return submitForm(event)"
       >
         <div class="form-group">
@@ -118,7 +117,6 @@
         fetch(form.action, {
           method: "POST",
           body: formData,
-          mode: "no-cors",
         })
           .then(() => {
             // 成功メッセージを表示
