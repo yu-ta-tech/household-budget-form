@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>家計簿登録フォーム</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>家計簿登録</h1>
+      <form
+        id="household-form"
+        action="https://docs.google.com/forms/u/0/d/e/https://docs.google.com/forms/u/0/d/e/1FAIpQLScoM_D0sgx9sCPpMbWa8C1jp_FoMKhuCmwXh0e6g6mfsDCKeQ/formResponse"
+        method="POST"
+        target="_blank"
+      >
+        <div class="form-group">
+          <label for="date">日付 <span class="required">*</span></label>
+          <select id="date" name="entry.455814332" required>
+            <!-- 日付はJavaScriptで動的に生成されます -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="type">収入 or 支出 <span class="required">*</span></label>
+          <select id="type" name="entry.93960343" required>
+            <option value="">選択してください</option>
+            <option value="収入">収入</option>
+            <option value="支出">支出</option>
+            <option value="チャージ">チャージ</option>
+            <option value="入金">入金</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="category">項目 <span class="required">*</span></label>
+          <select id="category" name="entry.2060881586" required>
+            <option value="">選択してください</option>
+            <option value="食費">食費</option>
+            <option value="雑費">雑費</option>
+            <option value="日用品">日用品</option>
+            <option value="交通費">交通費</option>
+            <option value="趣味・娯楽">趣味・娯楽</option>
+            <option value="教養・教育">教養・教育</option>
+            <option value="衣服・美容">衣服・美容</option>
+            <option value="自動車">自動車</option>
+            <option value="健康・医療">健康・医療</option>
+            <option value="水道・光熱費">水道・光熱費</option>
+            <option value="通信費">通信費</option>
+            <option value="保険">保険</option>
+            <option value="住宅">住宅</option>
+            <option value="その他・貯金">その他・貯金</option>
+            <option value="予算外">予算外</option>
+            <option value="給与">給与</option>
+            <option value="副業">副業</option>
+            <option value="臨時収入">臨時収入</option>
+            <option value="その他・収入">その他・収入</option>
+            <option value="財布">財布</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">内容</label>
+          <input type="text" id="description" name="entry.1616448129" />
+        </div>
+
+        <div class="form-group">
+          <label for="amount">金額 <span class="required">*</span></label>
+          <input type="number" id="amount" name="entry.1162686406" required />
+        </div>
+
+        <div class="form-group">
+          <label for="payment-method"
+            >支払い方法 <span class="required">*</span></label
+          >
+          <select id="payment-method" name="entry.1803142715" required>
+            <option value="">選択してください</option>
+            <option value="楽天">楽天</option>
+            <option value="Amazon">Amazon</option>
+            <option value="イオン">イオン</option>
+            <option value="現金">現金</option>
+            <option value="チャージ">チャージ</option>
+            <option value="口座振替">口座振替</option>
+            <option value="セゾン（高速料金）">セゾン（高速料金）</option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input
+            type="checkbox"
+            id="eating-out"
+            name="entry.622355442"
+            value="はい"
+          />
+          <label for="eating-out">外食</label>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="submit-btn">登録する</button>
+          <button type="reset" class="reset-btn">リセット</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
