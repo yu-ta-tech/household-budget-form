@@ -16,7 +16,6 @@
         name="hidden_iframe"
         id="hidden_iframe"
         style="display: none"
-        onload="if(submitted) {showSuccessMessage();}"
       ></iframe>
 
       <form
@@ -116,7 +115,8 @@
 
     <script src="script.js"></script>
     <script>
-      var submitted = false;
+      let submitted = false;
+
       function showSuccessMessage() {
         const successMessage = document.getElementById("success-message");
         successMessage.style.display = "block";
@@ -129,6 +129,15 @@
           submitted = false;
         }, 3000);
       }
+
+      // iframeのonloadイベントをJavaScriptで設定
+      window.onload = function () {
+        document.getElementById("hidden_iframe").onload = function () {
+          if (submitted) {
+            showSuccessMessage();
+          }
+        };
+      };
     </script>
   </body>
 </html>
